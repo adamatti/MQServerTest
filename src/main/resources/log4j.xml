@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<!--THIS FILES CONFIGURES LOG4J TO LOG TO CONSOLE -->
+<log4j:configuration>
+	<appender name="ConsoleAppender" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p [%t] %C - %m%n" />
+		</layout>
+	</appender>
+	
+	<logger name="org.apache.activemq" additivity="true">
+		<level value="error" />
+		<appender-ref ref="ConsoleAppender" />
+	</logger>
+	<logger name="net.timewalker.ffmq3" additivity="true">
+		<level value="error" />
+		<appender-ref ref="ConsoleAppender" />
+	</logger>
+	<root>
+		<priority value="debug" />
+		<appender-ref ref="ConsoleAppender" />
+	</root>
+</log4j:configuration>
